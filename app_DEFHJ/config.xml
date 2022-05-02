@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget>
+	<type>user</type>
+	<mouse>y</mouse>
+	<ver>0.0.1</ver>
+	<fullwidget>y</fullwidget>
+	<category>video</category>
+	<srcctl>y</srcctl>
+	<ticker>n</ticker>
+	<childlock>n</childlock>
+	<audiomute>y</audiomute>
+	<videomute>y</videomute>
+	<dcont>y</dcont>
+	<multiapp>y</multiapp>
+	<widgetname>ottplay-foss</widgetname>
+	<description></description>
+	<width>1280</width>
+	<height>720</height>
+	<BigThumbIcon>ott115x95.png</BigThumbIcon>
+	<ThumbIcon>ott106x87.png</ThumbIcon>
+	<BigListIcon>ott95x78.png</BigListIcon>
+	<ListIcon>ott85x70.png</ListIcon>
+	<author>
+		<name>alex</name>
+		<email>ott-play@gmail.com</email>
+		<link>http://ott-play.com/</link>
+		<organization>ott-play</organization>
+	</author>
+</widget>
