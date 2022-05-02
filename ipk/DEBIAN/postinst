@@ -1,0 +1,13 @@
+#!/bin/sh 
+
+if [ -d /usr/lib/enigma2/python/Plugins/Extensions/HbbTV ]; then
+    echo "=== Hbbtv Installed ==="
+else
+    echo "=== Please install plugin HbbTV! ==="
+fi
+echo "=========================================="
+echo "=   Installed OTT-play FOSS for ENIGMA2  ="
+echo "=          Please reboot enigma2         ="
+echo "=========================================="
+
+exit

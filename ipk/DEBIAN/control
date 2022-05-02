@@ -1,0 +1,12 @@
+Package: enigma2-plugin-extensions-ottplay-foss-e2hbbtv
+Version: 1.0
+Section: base
+Priority: optional
+Architecture: all
+Maintainer: Ednaz, Author - "alex1992", FOSS - "prog4food"
+Description: ottplay-foss-e2hbbtv
+Recommends: enigma2-plugin-extensions-hbbtv-webkit, enigma2-plugin-extensions-hbbtv
+Source: 
+Homepage: ott.prog4food.eu.org www.giclub.tv www.tvfaq.net
+OE: enigma2-plugin
+License: GPL
