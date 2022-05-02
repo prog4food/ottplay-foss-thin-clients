@@ -1,0 +1,22 @@
+<html><head>
+    <title></title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+</head>
+<body>
+<script>
+var host = "http://ott.prog4food.eu.org";
+(function() {
+    // Load the script
+    var script = document.createElement("SCRIPT");
+    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';
+    script.type = 'text/javascript';
+    script.onload = function(){
+        $(document.body).load(host+'/stbPlayer/stbPlayer_body.html');
+        $.getScript(host+'/stbPlayer/stbPlayer.js');
+       	$.getScript(host+'/samsung/tizen/stb.js');
+    };
+    document.getElementsByTagName("head")[0].appendChild(script);
+})();
+</script>
+</body>
+</html>
