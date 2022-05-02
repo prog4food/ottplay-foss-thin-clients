@@ -1,0 +1,22 @@
+{
+	"id": "com.ottplay.foss",
+	"requiredEULA":"generalTerms",
+	"version": "0.1.5",
+	"trustLevel":"default",
+	"supportGIP":true,
+	"bgColor": "#FFFFFF",
+	"vendor": "aabytt",
+	"type": "web",
+	"main": "index.html",
+	"title": "ottplay-FOSS",
+	"appDescription": "OTT-play by Alex (FOSS version)",
+	"icon": "icon.png",
+	"iconColor": "#FFFFFF",
+	"largeIcon": "largeicon.png",
+	"extraLargeIcon":"extraLargeIcon.png",
+	"disableBackHistoryAPI": false,
+	"requiredMemory":20,
+	"handlesRelaunch":false,
+	"transparent":false,
+	"mediumLargeIcon":"mediumLargeIcon.png"
+}

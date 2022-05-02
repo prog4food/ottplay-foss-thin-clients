@@ -1,0 +1,7 @@
+Package: com.ottplay.foss
+Version: 0.1.5
+Section: misc
+Priority: optional
+Architecture: all
+Maintainer: aabytt
+Description: ottplay-FOSS

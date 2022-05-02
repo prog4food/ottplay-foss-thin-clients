@@ -1,0 +1,1 @@
+document.addEventListener("visibilitychange",function(){document.hidden?(location.reload(),doHiddenCleanup()):doShowingTasks()},!0);

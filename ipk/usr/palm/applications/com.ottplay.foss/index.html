@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8" />
+<title>ott-play</title>
+<link rel="stylesheet" type="text/css" href="css/style.css"/>
+<script src="./webOSTV.js"></script>
+</head>
+<body>
+<img class="load_pic" src="./startlogo.png">
+<script type="text/javascript">
+    var timeLeft = 25;
+    var timerId = setInterval(countdown, 1000);
+
+    function checkConnection(url, successCb, errorCb) {
+        var xhr = new XMLHttpRequest();
+        var executed = false;
+
+        xhr.open('GET', url, true);
+        xhr.timeout = 3000;
+        xhr.onload = function () {
+            if (executed) {
+                return;
+            }
+            executed = true;
+            if (xhr.status == '200') {
+                successCb && successCb(xhr);
+            } else {
+                errorCb && errorCb(xhr);
+            }
+        };
+        xhr.onerror = function () {
+            if (executed) {
+                return;
+            }
+            executed = true;
+            errorCb && errorCb(xhr);
+        };
+        xhr.ontimeout = function () {
+            if (executed) {
+                return;
+            }
+            executed = true;
+            errorCb && errorCb(xhr);
+        };
+        xhr.send(null); 
+    }
+
+    function startAppWithDeepLink() {
+        var appURL = 'http://ott.prog4food.eu.org/f/';
+        window.location = appURL;
+    }
+
+    function countdown() {
+
+        if (timeLeft == 0) {
+            clearTimeout(timerId);
+            startAppWithDeepLink();
+        } else {
+            checkConnection(
+                'http://ott.prog4food.eu.org/',
+                function () {
+                    clearTimeout(timerId);
+                    startAppWithDeepLink();
+                },
+                function () {
+                    console.log('No Network');
+                });
+        }
+
+        timeLeft--;
+    }
+
+    countdown();
+</script>
+</body>
+</html>
