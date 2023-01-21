@@ -1,21 +1,35 @@
 <html><head>
-    <title></title>
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+	<title></title>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 </head>
 <body>
 <script>
-var host = "http://ott.prog4food.eu.org";
-(function() {
-    // Load the script
-    var script = document.createElement("SCRIPT");
-    script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js';
-    script.type = 'text/javascript';
-    script.onload = function(){
-        $(document.body).load(host+'/stbPlayer/stbPlayer_body.html');
-        $.getScript(host+'/stbPlayer/stbPlayer.js');
-       	$.getScript(host+'/samsung/tizen/stb.js');
-    };
-    document.getElementsByTagName("head")[0].appendChild(script);
+var host = 'ottp.eu.org', ott_device = 'samsung/tizen';
+var client_can_https;
+(function () {
+	function cutProto(_s) { var _i = _s.indexOf('://'); return (_i === -1 ? _s : _s.slice(_i+3)); }
+	function lLoader(_mode) {
+		if (host) { host = 'http://' + cutProto(host); }
+		if (_mode > 0) { client_can_https = (_mode === 2); }
+		var scriptTag = document.createElement('script');
+		scriptTag.src = host + '/loader/inplace.js?' + Math.random().toString();
+		scriptTag.type = 'text/javascript';
+		scriptTag.onerror = function (e) {
+			console.error(e);
+			document.body.innerHTML = '<h3>Error loading: ' + e.target.src + '</h3><br/><pre>Error loading: ' + e.target.src + '</pre>';
+		}
+		document.head.appendChild(scriptTag);
+	};
+	try {
+		// Check HTTPS connectivity
+		var _xhr = new XMLHttpRequest();
+		_xhr.open('GET', 'https://s.ottp.eu.org/generate_204', true);
+		_xhr.onerror = function () { lLoader(1); };
+		_xhr.onreadystatechange = function () { if (_xhr.readyState === 4 && _xhr.status === 204) { lLoader(2); } };
+		_xhr.send();
+	} catch(e) {
+		lLoader(0);
+	}
 })();
 </script>
 </body>
