@@ -1,7 +1,7 @@
 #!/bin/sh
 # Extract: dpkg-deb -R <file>.ipk
 BDIR=.
-PKG=com.ottplay-foss_lg_webos_v0.1.5
+PKG=com.ottplay-foss_lg_webos_v0.1.6
 
 # Pre clean
 rm -r "$BDIR/${PKG}.ipk" > /dev/null 2>&1
