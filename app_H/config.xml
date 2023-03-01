@@ -2,7 +2,7 @@
 <widget>
 	<type>user</type>
 	<flashplayer>y</flashplayer>
-	<ver>0.0.1</ver>
+	<ver>0.0.2</ver>
 	<fullwidget>y</fullwidget>
 	<category>video</category>
 	<srcctl>y</srcctl>
