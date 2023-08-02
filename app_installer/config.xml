@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget>
+	<previewjs>Install</previewjs>
+	<cpauthjs></cpauthjs>
+	<ver>1.0</ver>
+	<mgrver>1.0</mgrver>
+	<fullwidget>n</fullwidget>
+	<srcctl>n</srcctl>
+	<ticker>n</ticker>
+	<childlock>n</childlock>
+	<audiomute>n</audiomute>
+	<videomute>n</videomute>
+	<dcont>y</dcont>
+	<network>n</network>
+	<hubsite>n</hubsite>
+	<widgetname>Install</widgetname>
+	<description>Install</description>
+	<width>960</width>
+	<height>540</height>
+	<BigThumbIcon>icon/ott115x95.png</BigThumbIcon>
+	<ThumbIcon>icon/ott106x87.png</ThumbIcon>
+	<BigListIcon>icon/ott95x78.png</BigListIcon>
+	<ListIcon>icon/ott85x70.png</ListIcon>
+	<author>
+		<name></name>
+		<email></email>
+		<organization></organization>
+	</author>
+</widget>

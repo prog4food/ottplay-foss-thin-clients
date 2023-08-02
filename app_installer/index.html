@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>OTT-play FOSS Installer</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      color: #d9e6f2;
+      background-color: #0e1b30;
+    }
+    .gray { color: #47c2bd; }
+    .green { color: #51c237; }
+    .red { color: #d73140; }
+    #Log_area {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      width: 920px;
+      height: 500px;
+      z-index : 100;
+      font-size: 20px;
+      text-align: left;
+    }
+  </style>
+  <script type="text/javascript" src="$MANAGER_WIDGET/Common/API/Widget.js"></script>
+  <script type="text/javascript" src="$MANAGER_WIDGET/Common/API/TVKeyValue.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <object id="pluginObjectFile" border=0 classid="clsid:SAMSUNG-INFOLINK-FILESYSTEM"></object>			
+  <object id="pluginStorage" border=0 classid="clsid:SAMSUNG-INFOLINK-STORAGE"></object>
+</head>
+<body onload="OnLoad();" onunload="OnUnload();" id="mainbody">
+  <a href="javascript:void(0);" id="anchor" onkeydown="KeyDown();"></a>
+  <div id="Log_area" style="display:block;"></div>
+</body>
+</html>
