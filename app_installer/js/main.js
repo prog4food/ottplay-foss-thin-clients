@@ -49,7 +49,7 @@ function Install() {
 
 function F1() {
   if (oFile.IsExistedPath(zipDir + Name + '.zip')) {
-    Log('Installation ! &nbsp; &nbsp; Please Wait 20-30 sec . . . .');
+    Log('Installation... &nbsp; &nbsp; Please wait 20-30 sec...');
     return setTimeout('F2()', 100);
   }
 
@@ -57,8 +57,14 @@ function F1() {
 }
 
 function F2() {
-  var r = oFile.Unzip(zipDir + Name + '.zip', '/mtd_down/widgets/user/');
-  Log('Installation <span_gray>' + Name + '.zip</span>: <span_' + (r == 1 ? 'green>&#10004; OK!' : 'red>&#10006; Error! ' + r.toString()) + '</span><br />');
+  var wDir = '/mtd_down/widgets/user/';
+  if (oFile.IsExistedPath(wDir)) {
+    var r = oFile.Unzip(zipDir + Name + '.zip', wDir);
+    Log('Installation <span_gray>' + Name + '.zip</span>: <span_' + (r == 1 ? 'green>+++ OK!' : 'red>--- Error! ' + r.toString()) + '</span><br />');
+  } else {
+    Log('Widgets dir <span_gray>' + wDir + '</span> <span_red>is not found!</span>');
+    Log('Try to use <span_gray>usb-app</span> version');
+  }
   Log('Press any key for EXIT !');
 }
 
