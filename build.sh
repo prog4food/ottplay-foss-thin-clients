@@ -3,7 +3,7 @@ APP_ID="ottplay-foss.orsay"
 APP_ICONS="ott85x70.png ott95x78.png ott106x87.png ott115x95.png"
 
 APP_VER=2
-INSTALLER_VER=1
+INSTALLER_VER=2
 
 make_app() {
   echo "Packing app for: $1"

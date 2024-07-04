@@ -6,11 +6,16 @@ function _logFormat(s) {
   return s.replace(/<span_([^>]+)>/g, '<span class=\'\$1\'>');
 }
 
+function _logNoFlush(s, no_format) {
+  Log_string += (no_format ? s : _logFormat(s)) + '<br />';
+}
+
 try {
   widgetAPI = new Common.API.Widget();
   tvKey = new Common.API.TVKeyValue();
 } catch (e) {
-  Log_string += _logFormat('<span_red>Cannot use device API</span><br /><pre>') + e + '</pre><br />';
+  _logNoFlush('<span_red>Cannot use device API</span>', false)
+  _logNoFlush('<pre>' + e + '</pre>', true)
 }
 
 function OnLoad() {
@@ -57,14 +62,13 @@ function F1() {
 }
 
 function F2() {
-  var wDir = '/mtd_down/widgets/user/';
-  if (oFile.IsExistedPath(wDir)) {
-    var r = oFile.Unzip(zipDir + Name + '.zip', wDir);
-    Log('Installation <span_gray>' + Name + '.zip</span>: <span_' + (r == 1 ? 'green>+++ OK!' : 'red>--- Error! ' + r.toString()) + '</span><br />');
-  } else {
-    Log('Widgets dir <span_gray>' + wDir + '</span> <span_red>is not found!</span>');
-    Log('Try to use <span_gray>usb-app</span> version');
+  var widgetsDir = '/mtd_down/widgets/user/';
+  if (!oFile.IsExistedPath(widgetsDir)) {
+    _logNoFlush('<span_orange>Warning:</span> Widgets dir <span_gray>' + widgetsDir + '</span> <span_red>is not found!</span>', false);
+    Log('<span_orange>If the installation fails, try using the <span_gray>usb-app</span> version.</span>');
   }
+  var r = oFile.Unzip(zipDir + Name + '.zip', widgetsDir);
+  _logNoFlush('Installation <span_gray>' + Name + '.zip</span>: <span_' + (r == 1 ? 'green>+++ OK!' : 'red>--- Error! ' + r.toString()) + '</span><br />', false);
   Log('Press any key for EXIT !');
 }
 
@@ -78,6 +82,6 @@ function KeyDown() {
 }
 
 function Log(s) {
-  Log_string += _logFormat(s) + '<br />';
+  _logNoFlush(s, false)
   widgetAPI.putInnerHTML(Log_area, Log_string);
 }
